@@ -1,0 +1,783 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>녹색전환연구소 협력 제안 인포그래픽</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 15mm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 297mm;
+            height: 210mm;
+            margin: 0;
+            padding: 0;
+            font-family: "Malgun Gothic", "Noto Sans KR", "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1f2937 55%, #312e81 100%);
+            color: #0f172a;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 22px;
+        }
+
+        main {
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 250, 252, 0.97);
+            border-radius: 28px;
+            padding: 32px 42px;
+            display: grid;
+            grid-template-rows: 150px auto 110px;
+            gap: 22px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 36px 56px rgba(15, 23, 42, 0.45);
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 18%, rgba(59, 130, 246, 0.28), transparent 60%),
+                        radial-gradient(circle at 85% 22%, rgba(129, 140, 248, 0.35), transparent 55%),
+                        radial-gradient(circle at 48% 88%, rgba(16, 185, 129, 0.3), transparent 70%);
+            pointer-events: none;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .hero {
+            background: rgba(15, 23, 42, 0.93);
+            color: #f8fafc;
+            border-radius: 22px;
+            padding: 26px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -36px;
+            bottom: -40px;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.82), transparent 70%);
+            opacity: 0.6;
+        }
+
+        .hero h1 {
+            margin: 8px 0;
+            font-size: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.88;
+            line-height: 1.65;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(129, 140, 248, 0.22);
+            border-radius: 999px;
+            color: #c7d2fe;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .hero .tagline {
+            margin-top: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #60a5fa;
+        }
+
+        .meta {
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 26px;
+            display: grid;
+            gap: 12px;
+            backdrop-filter: blur(6px);
+            font-size: 13px;
+            color: #1f2937;
+        }
+
+        .meta div {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .meta div span:last-child {
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1.1fr 1.4fr 1fr;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 22px;
+            padding: 24px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.15);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -18% 42% 48% -42%;
+            background: rgba(148, 163, 184, 0.12);
+            transform: rotate(5deg);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 17px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1;
+        }
+
+        .card h2::before {
+            content: "";
+            width: 22px;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #3b82f6, #22d3ee);
+        }
+
+        .card ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 11px;
+            font-size: 13.3px;
+            line-height: 1.6;
+            color: #334155;
+            z-index: 1;
+        }
+
+        .card li strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            z-index: 1;
+        }
+
+        .metric {
+            background: linear-gradient(145deg, #3b82f6, #22d3ee);
+            color: #f8fafc;
+            border-radius: 20px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 120px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+        }
+
+        .metric h3 {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .metric strong {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .metric span {
+            font-size: 12px;
+            opacity: 0.82;
+        }
+
+        .chart-card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 22px;
+            padding: 26px;
+            color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-card::before {
+            content: "";
+            position: absolute;
+            inset: -60px 45% 40% -30%;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.35), transparent 70%);
+        }
+
+        .chart-card h2 {
+            margin: 0 0 12px;
+            font-size: 17px;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: #cbd5f5;
+            margin-bottom: 12px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(30, 64, 175, 0.55);
+        }
+
+        .chip::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            bottom: 14px;
+            width: 2px;
+            background: linear-gradient(180deg, #38bdf8, #6366f1);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 14px;
+            align-items: start;
+        }
+
+        .timeline-bullet {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #1d4ed8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f8fafc;
+            font-size: 11px;
+            font-weight: 700;
+            box-shadow: 0 10px 18px rgba(29, 78, 216, 0.3);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 14px 18px;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            font-size: 13px;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .timeline-content strong {
+            font-size: 13.5px;
+            color: #0f172a;
+        }
+
+        .api-row {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr 1fr;
+            gap: 18px;
+            z-index: 1;
+        }
+
+        .integration-card {
+            position: relative;
+            border-radius: 22px;
+            padding: 22px;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            background: rgba(248, 250, 252, 0.9);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .integration-card header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .integration-card h3 {
+            margin: 0;
+            font-size: 15px;
+            color: #1e293b;
+        }
+
+        .integration-card p {
+            margin: 0;
+            font-size: 12.5px;
+            color: #334155;
+            line-height: 1.55;
+        }
+
+        .integration-card iframe, .integration-card canvas {
+            width: 100%;
+            border: none;
+            border-radius: 16px;
+            min-height: 170px;
+            background: #0f172a;
+        }
+
+        .integration-card footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11.5px;
+            color: #64748b;
+            border: none;
+            padding: 0;
+            background: transparent;
+        }
+
+        .integration-card footer span strong {
+            color: #0f172a;
+        }
+
+        .icon-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            z-index: 1;
+        }
+
+        .icon-card {
+            background: rgba(15, 118, 110, 0.12);
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            font-size: 12.8px;
+            line-height: 1.6;
+            color: #064e3b;
+            position: relative;
+        }
+
+        .icon-card strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14.5px;
+            color: #065f46;
+        }
+
+        .icon-card::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), transparent 60%);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.78);
+            border-radius: 20px;
+            padding: 18px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            border: 1px solid rgba(226, 232, 240, 0.78);
+            z-index: 1;
+        }
+
+        footer strong {
+            color: #1f2937;
+        }
+
+        .cta-buttons {
+            display: inline-flex;
+            gap: 8px;
+        }
+
+        .cta-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(79, 70, 229, 0.12);
+            color: #4338ca;
+            border-radius: 999px;
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-buttons a:hover {
+            background: rgba(79, 70, 229, 0.22);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="hero">
+                <div>
+                    <span class="badge">2035 NDC Alignment</span>
+                    <h1>전기 난방기기 효율검사 제도 도입 제안</h1>
+                    <p>히트펌프 중심 정책에서 기술 중립형 경쟁체계로 전환하여 국내 고효율 전기 난방 기술의 시장 진입을 촉진하고 탄소 감축 효과를 극대화합니다. Beautiful.ai & Canva API 기반 비주얼로 주요 메시지를 직관적으로 전달합니다.</p>
+                </div>
+                <div class="tagline">데이터 기반 정책 전환 · 국내 제조 경쟁력 회복 · NDC 조기 달성</div>
+            </div>
+            <div class="meta">
+                <div><span>제안자</span><span>김영태 기술이사 (티비티엘 Energy Solution)</span></div>
+                <div><span>협력 대상</span><span>(사)녹색전환연구소</span></div>
+                <div><span>미팅 목적</span><span>공동 정책 제안 및 실행 파트너십 협의</span></div>
+                <div><span>기준 자료</span><span>2035 NDC 의견제출서 (2025.10.30)</span></div>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="card" style="gap: 18px;">
+                <h2>시장 위험 진단</h2>
+                <div class="metrics">
+                    <div class="metric">
+                        <h3>중국산 저효율</h3>
+                        <strong>65%</strong>
+                        <span>보조금 대상 히트펌프 중 저효율 수입 제품 추정 비중</span>
+                    </div>
+                    <div class="metric" style="background: linear-gradient(145deg, #f97316, #facc15); color: #1f2937;">
+                        <h3>부품 국외 의존</h3>
+                        <strong>80%</strong>
+                        <span>중국산 히트펌프 핵심 부품의 일본산 의존도</span>
+                    </div>
+                    <div class="metric" style="background: linear-gradient(145deg, #8b5cf6, #6366f1);">
+                        <h3>탄소 감축 공백</h3>
+                        <strong>-32%</strong>
+                        <span>실제 감축 효과 대비 목표 차이 (추정)</span>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>저효율 제품 확산</strong> → 보조금 집행 대비 실효성 저하·에너지 비용 증가</li>
+                    <li><strong>기술 편향 정책</strong> → 이온히팅 등 차세대 기술 진입 장벽 심화</li>
+                    <li><strong>국내 제조 쇠퇴</strong> → R&D 투자 위축·수입 의존 심화</li>
+                </ul>
+            </div>
+
+            <div class="chart-card">
+                <h2>정책 시나리오별 감축 기여 전망</h2>
+                <div class="chart-legend">
+                    <span class="chip" style="color: #60a5fa;">현행 히트펌프 중심</span>
+                    <span class="chip" style="color: #34d399;">통합 효율검사 도입</span>
+                </div>
+                <canvas id="ndcChart" width="420" height="220"></canvas>
+                <p style="font-size: 11px; margin: 12px 0 0; color: #94a3b8;">※ 수치는 정책 실행 시 기대되는 난방 부문 온실가스 감축률 비교 (자체 추정)</p>
+            </div>
+
+            <div class="card" style="gap: 16px;">
+                <h2>실행 로드맵 (2025~2027)</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-bullet">Q4</div>
+                        <div class="timeline-content">
+                            <strong>공동 의제 설정</strong> · 효율지표 정의 워크숍 · 이해관계자 니즈 조사
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-bullet">Q1</div>
+                        <div class="timeline-content">
+                            <strong>파일럿 시험</strong> · 표준 시험 프로토콜 설계 · 공인기관 협력체계 구축
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-bullet">Q3</div>
+                        <div class="timeline-content">
+                            <strong>제도 반영</strong> · 산업부/환경부 정책 건의 · 보조금 기준 개선안 발표
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-bullet">2027</div>
+                        <div class="timeline-content">
+                            <strong>확산 & 데이터 플랫폼</strong> · 시장 공개 · 민간 투자 유치 · 후속 공동 프로젝트 발굴
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-row">
+            <div class="integration-card" data-source="beautiful" data-beautiful-id="REPLACE_WITH_PRESENTATION_ID">
+                <header>
+                    <h3>Beautiful.ai 인사이트 보드</h3>
+                    <span class="badge" style="background: rgba(59,130,246,0.18); color: #1d4ed8;">실시간 업데이트</span>
+                </header>
+                <p>Beautiful.ai API로 생성한 정책 브리프 슬라이드를 임베드하여 최신 시장 데이터 및 친환경 열원 트렌드를 공유합니다.</p>
+                <div class="beautiful-wrapper" style="min-height:190px; background: rgba(15,23,42,0.92); border-radius:16px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:12px;">
+                    Beautiful.ai 프레젠테이션 불러오는 중...
+                </div>
+                <footer>
+                    <span><strong>사용 팁</strong> Beautiful.ai 대시보드에서 공유 ID 발급 후 상단 data 속성 교체</span>
+                    <span>API: https://api.beautiful.ai/v1/</span>
+                </footer>
+            </div>
+
+            <div class="integration-card" data-source="canva" data-canva-design="REPLACE_WITH_CANVA_DESIGN_ID" data-canva-token="REPLACE_WITH_EMBED_TOKEN">
+                <header>
+                    <h3>Canva 실행 로드맵 디자인</h3>
+                    <span class="badge" style="background: rgba(59,130,246,0.18); color: #1d4ed8;">공동 편집</span>
+                </header>
+                <p>Canva API Embed를 활용하여 공동 작성 가능한 로드맵 또는 정책 리플렛을 미팅 중 바로 확인·수정할 수 있습니다.</p>
+                <div class="canva-wrapper" style="min-height:190px; background: rgba(15,23,42,0.92); border-radius:16px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:12px;">
+                    Canva 디자인 로딩 대기 (ID/Token 필요)
+                </div>
+                <footer>
+                    <span><strong>사용 팁</strong> Canva Developers Portal에서 embedToken 발급 후 속성 교체</span>
+                    <span>API: https://www.canva.com/developers</span>
+                </footer>
+            </div>
+
+            <div class="integration-card">
+                <header>
+                    <h3>자체 KPI 대시보드</h3>
+                    <span class="badge" style="background: rgba(16,185,129,0.18); color: #047857;">데이터 연동</span>
+                </header>
+                <p>Beautiful.ai/Canva에서 확보한 시각 자료와 연계되는 KPI를 한눈에 보여주는 보조 지표 공간입니다. 필요 시 빅쿼리·에어테이블 등과 연동 가능합니다.</p>
+                <canvas id="kpiChart" width="260" height="150"></canvas>
+                <footer>
+                    <span><strong>정책 KPI</strong> 탄소감축, 예산절감, 국내화율</span>
+                    <span>데이터 갱신: 수동 · API 연동 지원</span>
+                </footer>
+            </div>
+        </section>
+
+        <section class="icon-row">
+            <div class="icon-card">
+                <strong>데이터 기반 정책</strong>
+                공인 효율 데이터와 Beautiful.ai 인사이트를 결합하여 정책 브리핑을 자동화하고, 보조금 집행 투명성을 강화합니다.
+            </div>
+            <div class="icon-card" style="background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.35); color: #1e3a8a;">
+                <strong>기술 중립 경쟁체계</strong>
+                Canva 협업 템플릿으로 히트펌프-이온히팅 등 전기 열원 비교 인포그래픽을 공동 제작해 이해관계자 설득력을 확보합니다.
+            </div>
+            <div class="icon-card" style="background: rgba(147, 51, 234, 0.12); border-color: rgba(147, 51, 234, 0.35); color: #581c87;">
+                <strong>국내 산업 역량 강화</strong>
+                API 기반 인포그래픽 태세로 테스트베드 결과와 제조 성과를 실시간 업데이트하여 투자자 및 정책 파트너와 공유합니다.
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                <strong>다음 논의 제안</strong> 데이터 플랫폼 공동 추진 · 정책 공청회 공동 개최 · 실증 프로젝트 협력
+            </div>
+            <div class="cta-buttons">
+                <a href="https://api.beautiful.ai/docs" target="_blank" rel="noopener">Beautiful.ai API 문서</a>
+                <a href="https://www.canva.com/developers/docs/embedding/simple" target="_blank" rel="noopener">Canva Embed 가이드</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const ctx = document.getElementById('ndcChart');
+        const ndcChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['탄소 감축률', '국내 산업 활성화', '보조금 효율성', '소비자 체감 효과'],
+                datasets: [
+                    {
+                        label: '현행 정책',
+                        data: [32, 40, 45, 38],
+                        backgroundColor: 'rgba(96, 165, 250, 0.65)',
+                        borderRadius: 10,
+                    },
+                    {
+                        label: '통합 효율검사 도입',
+                        data: [58, 68, 72, 63],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderRadius: 10,
+                    }
+                ]
+            },
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.85)',
+                        titleColor: '#f8fafc',
+                        bodyColor: '#e2e8f0',
+                        padding: 10,
+                        borderColor: 'rgba(96, 165, 250, 0.4)',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(148, 163, 184, 0.2)' },
+                        ticks: {
+                            color: '#cbd5f5',
+                            font: { size: 11 }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 80,
+                        ticks: {
+                            color: '#cbd5f5',
+                            font: { size: 11 },
+                            callback: value => value + '%'
+                        },
+                        grid: { color: 'rgba(148, 163, 184, 0.2)' }
+                    }
+                }
+            }
+        });
+
+        const kpiCtx = document.getElementById('kpiChart');
+        if (kpiCtx) {
+            new Chart(kpiCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['탄소 감축', '예산 절감', '국내화율', '시장 신뢰', '소비자 만족'],
+                    datasets: [
+                        {
+                            label: '목표치',
+                            data: [70, 65, 60, 68, 62],
+                            backgroundColor: 'rgba(59, 130, 246, 0.25)',
+                            borderColor: 'rgba(59, 130, 246, 0.8)',
+                            pointBackgroundColor: 'rgba(59, 130, 246, 0.9)',
+                            borderWidth: 2,
+                        },
+                        {
+                            label: '현황',
+                            data: [45, 40, 38, 42, 36],
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            borderColor: 'rgba(16, 185, 129, 0.85)',
+                            pointBackgroundColor: 'rgba(16, 185, 129, 0.9)',
+                            borderWidth: 2,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#1f2937', font: { size: 11 } }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            angleLines: { color: 'rgba(148, 163, 184, 0.3)' },
+                            grid: { color: 'rgba(148, 163, 184, 0.2)' },
+                            pointLabels: { color: '#334155', font: { size: 11 } },
+                            ticks: { backdropColor: 'transparent', color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function loadBeautifulEmbed(card) {
+            const presentationId = card.dataset.beautifulId;
+            const wrapper = card.querySelector('.beautiful-wrapper');
+            if (!presentationId || presentationId.startsWith('REPLACE')) {
+                wrapper.textContent = 'Beautiful.ai 공유 ID를 설정하면 프레젠테이션이 자동으로 로드됩니다.';
+                return;
+            }
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://cdn.beautiful.ai/embed/v1/presentations/${presentationId}?panel=false&loop=true`;
+            iframe.allowFullscreen = true;
+            iframe.style.border = 'none';
+            wrapper.innerHTML = '';
+            wrapper.appendChild(iframe);
+        }
+
+        function loadCanvaEmbed(card) {
+            const designId = card.dataset.canvaDesign;
+            const embedToken = card.dataset.canvaToken;
+            const wrapper = card.querySelector('.canva-wrapper');
+            if (!designId || designId.startsWith('REPLACE')) {
+                wrapper.textContent = 'Canva 디자인 ID와 embedToken을 설정하면 로드맵 템플릿이 표시됩니다.';
+                return;
+            }
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.canva.com/design/${designId}/view?embed&token=${embedToken}`;
+            iframe.allowFullscreen = true;
+            iframe.style.border = 'none';
+            wrapper.innerHTML = '';
+            wrapper.appendChild(iframe);
+        }
+
+        document.querySelectorAll('[data-source="beautiful"]').forEach(loadBeautifulEmbed);
+        document.querySelectorAll('[data-source="canva"]').forEach(loadCanvaEmbed);
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>개선 방안 (2) - 효율 정보 공개</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
+        
+        body {width: 1280px; min-height: 720px; overflow: hidden; font-family: 'Nanum Gothic', sans-serif;
+            margin: 0;
+            padding: 0;}
+        
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            
+        }
+        
+        .title {
+            font-family: 'Nanum Square', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        
+        .accent-line {
+            background: linear-gradient(90deg, #4CAF50 0%, #333333 100%);
+            height: 4px;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide gradient-bg flex flex-col" style=" overflow: hidden;">
+<!-- Top accent line -->
+<div class="accent-line w-full"></div>
+<!-- Header -->
+<div class="px-16 py-8">
+<h1 class="title text-4xl font-bold text-gray-800">개선 방안 (2) - 효율 정보 공개</h1>
+</div>
+<!-- Main content -->
+<div class="flex-grow px-16 py-4">
+<!-- Introduction -->
+<div class="mb-8 bg-white p-5 rounded-lg shadow-md">
+<p class="text-xl text-gray-700">정부는 전기 에너지로 작동하는 모든 난방기기에 대해 통합 효율검사 제도를 마련하고, 공인기관의 객관적인 검사를 통해 산출된 데이터를 투명하게 공개해야 합니다.</p>
+</div>
+<!-- Information disclosure benefits -->
+<div class="grid grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="info-card p-5">
+<div class="icon-circle bg-green-100 mx-auto">
+<i class="fas fa-certificate text-green-600 text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-center text-gray-700 mb-3">공인기관 객관검사</h3>
+<p class="text-gray-600 text-center">전기 난방기기의 효율성을 공식적으로 검증할 수 있는 기준과 절차를 마련합니다.</p>
+</div>
+<!-- Card 2 -->
+<div class="info-card p-5">
+<div class="icon-circle bg-green-100 mx-auto">
+<i class="fas fa-chart-bar text-green-600 text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-center text-gray-700 mb-3">투명한 데이터 공개</h3>
+<p class="text-gray-600 text-center">에너지 사용량, 효율, 가격 등 소비자가 제품을 비교할 수 있는 정보를 공개합니다.</p>
+</div>
+<!-- Card 3 -->
+<div class="info-card p-5">
+<div class="icon-circle bg-green-100 mx-auto">
+<i class="fas fa-hand-holding-usd text-green-600 text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-center text-gray-700 mb-3">소비자 합리적 선택</h3>
+<p class="text-gray-600 text-center">공개된 정보를 바탕으로 소비자는 제품을 구매할 때 직접 비교하여 합리적인 결정을 내릴 수 있습니다.</p>
+</div>
+</div>
+<!-- Bottom section -->
+<div class="mt-8 bg-white p-5 rounded-lg shadow-md flex items-center">
+<div class="w-1/6 flex justify-center">
+<i class="fas fa-lightbulb text-yellow-500 text-5xl"></i>
+</div>
+<div class="w-5/6">
+<h3 class="text-xl font-semibold text-gray-700 mb-2">기대효과</h3>
+<p class="text-gray-600">정보 공개는 시장에서 고효율 기술이 자연스럽게 주도적인 위치를 차지하게 하며, 보조금 없이도 고효율 제품이 시장을 선도하는 자율 경쟁 환경을 조성할 것입니다.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-16 py-4 flex justify-between items-center">
+<div class="text-sm text-gray-500">
+<p>TVTL Energy Solution</p>
+</div>
+<div class="text-sm text-gray-500">
+<p>2025년 11월 1일</p>
+</div>
+</div>
+<!-- Bottom accent line -->
+<div class="accent-line w-full"></div>
+</div>
+
+</body></html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>현행 제도의 문제점 (1) - 저효율 제품 확산</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
+        
+        body {width: 1280px; min-height: 720px; overflow: hidden; font-family: 'Nanum Gothic', sans-serif;
+            margin: 0;
+            padding: 0;}
+        
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            
+        }
+        
+        .title {
+            font-family: 'Nanum Square', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        
+        .accent-line {
+            background: linear-gradient(90deg, #4CAF50 0%, #333333 100%);
+            height: 4px;
+        }
+        
+        .problem-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid #FF5252;
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FF5252;
+            color: white;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide gradient-bg flex flex-col" style=" overflow: hidden;">
+<!-- Top accent line -->
+<div class="accent-line w-full"></div>
+<!-- Header -->
+<div class="px-16 py-8">
+<h1 class="title text-4xl font-bold text-gray-800">현행 제도의 문제점 (1) - 저효율 제품 확산</h1>
+</div>
+<!-- Main content -->
+<div class="flex-grow px-16 py-4 flex">
+<!-- Left side content -->
+<div class="w-3/5 pr-8">
+<div class="problem-box p-6 mb-6 rounded-lg shadow-md">
+<div class="flex items-start">
+<div class="icon-circle mr-4 flex-shrink-0">
+<i class="fas fa-ship text-2xl"></i>
+</div>
+<div>
+<h2 class="text-2xl font-semibold text-gray-700 mb-2">중국산 저효율 제품 대량 수입</h2>
+<p class="text-lg text-gray-600">정부의 히트펌프 보조금 사업으로 인해 중국산 저효율 제품이 대량 수입되어 시장에 확산되고 있습니다.</p>
+</div>
+</div>
+</div>
+<div class="problem-box p-6 mb-6 rounded-lg shadow-md">
+<div class="flex items-start">
+<div class="icon-circle mr-4 flex-shrink-0">
+<i class="fas fa-industry text-2xl"></i>
+</div>
+<div>
+<h2 class="text-2xl font-semibold text-gray-700 mb-2">국내 제조사 경쟁력 약화</h2>
+<p class="text-lg text-gray-600">핵심 부품으로 일본산을 사용함에도 불구하고 완제품 단가가 낮아 국내 제조사의 경쟁력을 심각하게 위협하고 있습니다.</p>
+</div>
+</div>
+</div>
+<div class="problem-box p-6 rounded-lg shadow-md">
+<div class="flex items-start">
+<div class="icon-circle mr-4 flex-shrink-0">
+<i class="fas fa-smog text-2xl"></i>
+</div>
+<div>
+<h2 class="text-2xl font-semibold text-gray-700 mb-2">탄소 감축 실효성 저하</h2>
+<p class="text-lg text-gray-600">에너지 효율이 낮은 제품들이 시장에 확산되어 단기적인 보급 확대에도 불구하고 탄소 감축의 실효性는 떨어질 우려가 큽니다.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right side visual -->
+<div class="w-2/5 flex flex-col justify-center items-center">
+<div class="w-full h-64 mb-6" id="chart"></div>
+<div class="bg-white p-6 rounded-lg shadow-lg w-full">
+<h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center">
+<i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                        장기적 영향
+                    </h3>
+<ul class="text-lg text-gray-600 space-y-2">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-red-500 mt-1 mr-2"></i>
+<span>국내 전기보일러, 이온히팅 등 혁신형 기술의 시장 진입 제한</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-red-500 mt-1 mr-2"></i>
+<span>에너지 효율 향상을 저해하는 부정적 영향 지속</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-16 py-4 flex justify-between items-center">
+<div class="text-sm text-gray-500">
+<p>TVTL Energy Solution</p>
+</div>
+<div class="text-sm text-gray-500" style="visibility: hidden;">
+<p>3/9</p>
+</div>
+</div>
+<!-- Bottom accent line -->
+<div class="accent-line w-full"></div>
+</div>
+<script>
+        // Simple visualization showing the problem of low-efficiency products
+        const chart = d3.select("#chart");
+        const width = chart.node().getBoundingClientRect().width;
+        const height = chart.node().getBoundingClientRect().height;
+        
+        const svg = chart.append("svg")
+            .attr("width", width)
+            .attr("height", height);
+            
+        // Background
+        svg.append("rect")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("fill", "#f9f9f9")
+            .attr("rx", 8);
+            
+        // Title
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", 30)
+            .attr("text-anchor", "middle")
+            .attr("font-family", "'Nanum Square', sans-serif")
+            .attr("font-size", "18px")
+            .attr("font-weight", "bold")
+            .attr("fill", "#333333")
+            .text("히트펌프 시장 상황");
+            
+        // Draw arrows showing product flow
+        const drawArrow = (x1, y1, x2, y2, color) => {
+            svg.append("line")
+                .attr("x1", x1)
+                .attr("y1", y1)
+                .attr("x2", x2)
+                .attr("y2", y2)
+                .attr("stroke", color)
+                .attr("stroke-width", 3)
+                .attr("marker-end", "url(#arrow)");
+        };
+        
+        // Define arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrow")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#666666");
+            
+        // Draw flow arrows
+        drawArrow(width * 0.2, height * 0.4, width * 0.8, height * 0.4, "#4CAF50"); // Chinese products
+        drawArrow(width * 0.2, height * 0.6, width * 0.8, height * 0.6, "#FF5252"); // Low efficiency products
+        
+        // Add labels
+        svg.append("text")
+            .attr("x", width * 0.1)
+            .attr("y", height * 0.4)
+            .attr("text-anchor", "start")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#4CAF50")
+            .text("중국산 제품");
+            
+        svg.append("text")
+            .attr("x", width * 0.1)
+            .attr("y", height * 0.6)
+            .attr("text-anchor", "start")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#FF5252")
+            .text("저효율 제품");
+            
+        // Add efficiency indicators
+        svg.append("text")
+            .attr("x", width * 0.9)
+            .attr("y", height * 0.4)
+            .attr("text-anchor", "end")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#4CAF50")
+            .text("고효율");
+            
+        svg.append("text")
+            .attr("x", width * 0.9)
+            .attr("y", height * 0.6)
+            .attr("text-anchor", "end")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#FF5252")
+            .text("저효율");
+    </script>
+
+</body></html>
