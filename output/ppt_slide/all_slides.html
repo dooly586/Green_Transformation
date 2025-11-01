@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>난방 기기 보급 사업의 문제점과 개선 방안 - 전체 슬라이드</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
+
+    html {
+        overflow: auto;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 1600px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: 'Nanum Gothic', sans-serif;
+        background: #f5f5f5;
+    }
+
+    .slide {
+        width: 100%;
+        min-height: 720px;
+        position: relative;
+        background: #ffffff;
+        margin-bottom: 40px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        margin-bottom: 0;
+    }
+
+    .page-divider {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+        margin: 30px 0;
+    }
+
+    .title {
+        font-family: 'Nanum Square', sans-serif;
+    }
+
+    .gradient-bg {
+        background: #ffffff;
+    }
+
+    .content-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-left: 4px solid #4CAF50;
+    }
+
+    .problem-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-left: 4px solid #FF5252;
+    }
+
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FF5252;
+        color: white;
+    }
+
+    .comparison-box {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .proposal-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .device-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .info-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .ndc-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-bar {
+        height: 30px;
+        border-radius: 15px;
+    }
+
+    .conclusion-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    @media print {
+        .slide {
+            page-break-after: always;
+            margin-bottom: 0;
+        }
+        .page-divider {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- Slide 1: 표지 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="flex-grow flex flex-col justify-center items-center px-20 py-16">
+        <div class="mb-8 text-6xl text-green-600">
+            <i class="fas fa-temperature-low"></i>
+            <i class="fas fa-bolt ml-4"></i>
+            <i class="fas fa-leaf ml-4"></i>
+        </div>
+        <h1 class="title text-5xl font-bold text-gray-800 mb-6 text-center">
+            난방 기기 보급 사업의 문제점과 개선 방안
+        </h1>
+        <p class="text-2xl text-gray-600 mb-12 text-center">
+            에너지 효율 검사 제도 일원화 및 정보 공개를 통한 시장 개선 방안
+        </p>
+        <div class="w-24 h-1 bg-green-600"></div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 2: 서론 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">서론</h1>
+    </div>
+    <div class="flex-grow px-16 py-4 flex">
+        <div class="w-2/3 pr-8">
+            <div class="content-box p-6 mb-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-leaf text-green-600 text-2xl mr-3"></i>
+                    <h2 class="text-2xl font-semibold text-gray-700">탄소중립 정책과 난방 기기 보급</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-2">정부의 탄소중립 정책 추진과 함께 난방 기기 보급 사업은 국가 온실가스 감축 목표(NDC) 달성에 중요한 역할을 하고 있습니다.</p>
+            </div>
+            <div class="content-box p-6 mb-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-search text-green-600 text-2xl mr-3"></i>
+                    <h2 class="text-2xl font-semibold text-gray-700">현행 제도 문제점 진단</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-2">현재 시행 중인 난방 기기 보급 사업, 특히 히트펌프 에너지 효율 검사 제도에 문제가 있어 이를 진단하고 있습니다.</p>
+            </div>
+            <div class="content-box p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-lightbulb text-green-600 text-2xl mr-3"></i>
+                    <h2 class="text-2xl font-semibold text-gray-700">개선 방안 제안</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-2">진실한 에너지 효율 증진 및 탄소 감축 목표 달성을 위해 실질적인 개선 방안을 제안합니다.</p>
+            </div>
+        </div>
+        <div class="w-1/3 flex flex-col justify-center items-center">
+            <div class="bg-white rounded-full w-48 h-48 flex items-center justify-center shadow-lg mb-6">
+                <i class="fas fa-home text-green-600 text-7xl"></i>
+            </div>
+            <div class="bg-white rounded-full w-48 h-48 flex items-center justify-center shadow-lg mb-6">
+                <i class="fas fa-bolt text-green-600 text-7xl"></i>
+            </div>
+            <div class="bg-white rounded-full w-48 h-48 flex items-center justify-center shadow-lg">
+                <i class="fas fa-temperature-low text-green-600 text-7xl"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 3: 문제점 1 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">현행 제도의 문제점 (1) - 저효율 제품 확산</h1>
+    </div>
+    <div class="flex-grow px-16 py-4 flex">
+        <div class="w-3/5 pr-8">
+            <div class="problem-box p-6 mb-6 rounded-lg shadow-md">
+                <div class="flex items-start">
+                    <div class="icon-circle mr-4 flex-shrink-0">
+                        <i class="fas fa-ship text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">중국산 저효율 제품 대량 수입</h2>
+                        <p class="text-lg text-gray-600">정부의 히트펌프 보조금 사업으로 인해 중국산 저효율 제품이 대량 수입되어 시장에 확산되고 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="problem-box p-6 mb-6 rounded-lg shadow-md">
+                <div class="flex items-start">
+                    <div class="icon-circle mr-4 flex-shrink-0">
+                        <i class="fas fa-industry text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">국내 제조사 경쟁력 약화</h2>
+                        <p class="text-lg text-gray-600">핵심 부품으로 일본산을 사용함에도 불구하고 완제품 단가가 낮아 국내 제조사의 경쟁력을 심각하게 위협하고 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="problem-box p-6 rounded-lg shadow-md">
+                <div class="flex items-start">
+                    <div class="icon-circle mr-4 flex-shrink-0">
+                        <i class="fas fa-smog text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">탄소 감축 실효성 저하</h2>
+                        <p class="text-lg text-gray-600">에너지 효율이 낮은 제품들이 시장에 확산되어 단기적인 보급 확대에도 불구하고 탄소 감축의 실효성은 떨어질 우려가 큽니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-2/5 flex flex-col justify-center items-center">
+            <div class="w-full h-64 mb-6" id="chart1"></div>
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center">
+                    <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                    장기적 영향
+                </h3>
+                <ul class="text-lg text-gray-600 space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-red-500 mt-1 mr-2"></i>
+                        <span>국내 전기보일러, 이온히팅 등 혁신형 기술의 시장 진입 제한</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-red-500 mt-1 mr-2"></i>
+                        <span>에너지 효율 향상을 저해하는 부정적 영향 지속</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 4: 문제점 2 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">현행 제도의 문제점 (2) - 평가 기준 부재</h1>
+    </div>
+    <div class="flex-grow px-16 py-4 flex flex-col">
+        <div class="content-box p-6 mb-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-exclamation-triangle text-red-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl font-semibold text-gray-700">평가 기준 부재의 문제점</h2>
+            </div>
+            <p class="text-lg text-gray-600 mb-2">우리나라에는 전기 난방기기에 대한 공식적인 에너지 효율 검사 제도가 부재합니다. 이는 일본(APF), 미국(UEF)과 대조적입니다.</p>
+        </div>
+        <div class="flex-grow grid grid-cols-3 gap-6">
+            <div class="comparison-box rounded-lg shadow-md p-5 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-sun text-red-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">일본</h3>
+                <div class="w-full border-t border-gray-200 my-2"></div>
+                <p class="text-center text-gray-600">APF(Annual Performance Factor)</p>
+                <p class="text-center text-gray-600">전기 히트펌프 및 보일러 제품 효율 검증</p>
+            </div>
+            <div class="comparison-box rounded-lg shadow-md p-5 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-leaf text-yellow-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">한국</h3>
+                <div class="w-full border-t border-gray-200 my-2"></div>
+                <p class="text-center text-gray-600">공식적인 평가 기준 부재</p>
+                <p class="text-center text-gray-600">특정 제품군(히트펌프)에만 보조금 편중</p>
+            </div>
+            <div class="comparison-box rounded-lg shadow-md p-5 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-flag text-blue-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">미국</h3>
+                <div class="w-full border-t border-gray-200 my-2"></div>
+                <p class="text-center text-gray-600">UEF(Uniform Energy Factor)</p>
+                <p class="text-center text-gray-600">전기 히트펌프 및 보일러 제품 효율 검증</p>
+            </div>
+        </div>
+        <div class="mt-6 grid grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-5">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-balance-scale text-green-600 text-xl mr-2"></i>
+                    <h3 class="text-xl font-semibold text-gray-700">시장 왜곡</h3>
+                </div>
+                <ul class="list-disc pl-6 text-gray-600">
+                    <li>특정 제품군에만 보조금 편중</li>
+                    <li>고효율 기술 확산 저해</li>
+                </ul>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-5">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-thumbs-down text-green-600 text-xl mr-2"></i>
+                    <h3 class="text-xl font-semibold text-gray-700">기술 혁신 제한</h3>
+                </div>
+                <ul class="list-disc pl-6 text-gray-600">
+                    <li>새로운 기술 개발 촉진 어려움</li>
+                    <li>시장 경쟁 심화 저해</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 5: 개선방안 1 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">개선 방안 (1) - 효율검사 제도 일원화</h1>
+    </div>
+    <div class="flex-grow px-16 py-4 flex flex-col">
+        <div class="proposal-box p-8 mb-8">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-balance-scale text-green-600 text-3xl mr-4"></i>
+                <h2 class="text-2xl font-semibold text-gray-700">기술 중립적 경쟁 체계 마련</h2>
+            </div>
+            <p class="text-lg text-gray-600 mb-4">
+                현재 특정 난방기기에만 편중된 보조금 정책의 불균형을 해소하고, 모든 전기 기반 난방기기의 공정한 경쟁을 유도하기 위해 통합 효율검사 제도의 도입이 시급합니다.
+            </p>
+        </div>
+        <div class="flex justify-between items-center mb-8">
+            <div class="proposal-box p-4 w-1/3 mx-2 text-center">
+                <div class="device-icon bg-green-100 mb-4">
+                    <i class="fas fa-wind text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">히트펌프</h3>
+                <p class="text-gray-600">현재 보조금이 적용되는 주요 난방기기</p>
+            </div>
+            <div class="proposal-box p-4 w-1/3 mx-2 text-center">
+                <div class="device-icon bg-green-100 mb-4">
+                    <i class="fas fa-fire text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">전기보일러</h3>
+                <p class="text-gray-600">차세대 전기 열원 기술 포함</p>
+            </div>
+            <div class="proposal-box p-4 w-1/3 mx-2 text-center">
+                <div class="device-icon bg-green-100 mb-4">
+                    <i class="fas fa-bolt text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">이온히팅</h3>
+                <p class="text-gray-600">혁신적 기술의 시장 진입 촉진</p>
+            </div>
+        </div>
+        <div class="flex justify-between">
+            <div class="w-1/2 pr-4">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                    <h3 class="text-xl font-semibold text-gray-700">효율검사 제도의 이점</h3>
+                </div>
+                <ul class="list-disc pl-8 text-gray-600">
+                    <li class="mb-2">특정 기술에 대한 편향된 지원 지양</li>
+                    <li class="mb-2">시장의 자율적인 기술 혁신 촉진</li>
+                    <li class="mb-2">전반적인 에너지 효율 향상 도모</li>
+                </ul>
+            </div>
+            <div class="w-1/2 pl-4">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-lightbulb text-green-600 mr-2"></i>
+                    <h3 class="text-xl font-semibold text-gray-700">제안 내용</h3>
+                </div>
+                <ul class="list-disc pl-8 text-gray-600">
+                    <li class="mb-2">모든 전기 기반 난방기기 대상 통합 평가 체계</li>
+                    <li class="mb-2">공인기관의 객관적 검사 및 평가</li>
+                    <li class="mb-2">기술 중립적 경쟁 환경 조성</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 6: 개선방안 2 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">개선 방안 (2) - 효율 정보 공개</h1>
+    </div>
+    <div class="flex-grow px-16 py-4">
+        <div class="mb-8 bg-white p-5 rounded-lg shadow-md">
+            <p class="text-xl text-gray-700">정부는 전기 에너지로 작동하는 모든 난방기기에 대해 통합 효율검사 제도를 마련하고, 공인기관의 객관적인 검사를 통해 산출된 데이터를 투명하게 공개해야 합니다.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-6">
+            <div class="info-card p-5">
+                <div class="icon-circle bg-green-100 mx-auto" style="width: 60px; height: 60px; margin-bottom: 16px;">
+                    <i class="fas fa-certificate text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center text-gray-700 mb-3">공인기관 객관검사</h3>
+                <p class="text-gray-600 text-center">전기 난방기기의 효율성을 공식적으로 검증할 수 있는 기준과 절차를 마련합니다.</p>
+            </div>
+            <div class="info-card p-5">
+                <div class="icon-circle bg-green-100 mx-auto" style="width: 60px; height: 60px; margin-bottom: 16px;">
+                    <i class="fas fa-chart-bar text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center text-gray-700 mb-3">투명한 데이터 공개</h3>
+                <p class="text-gray-600 text-center">에너지 사용량, 효율, 가격 등 소비자가 제품을 비교할 수 있는 정보를 공개합니다.</p>
+            </div>
+            <div class="info-card p-5">
+                <div class="icon-circle bg-green-100 mx-auto" style="width: 60px; height: 60px; margin-bottom: 16px;">
+                    <i class="fas fa-hand-holding-usd text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center text-gray-700 mb-3">소비자 합리적 선택</h3>
+                <p class="text-gray-600 text-center">공개된 정보를 바탕으로 소비자는 제품을 구매할 때 직접 비교하여 합리적인 결정을 내릴 수 있습니다.</p>
+            </div>
+        </div>
+        <div class="mt-8 bg-white p-5 rounded-lg shadow-md flex items-center">
+            <div class="w-1/6 flex justify-center">
+                <i class="fas fa-lightbulb text-yellow-500 text-5xl"></i>
+            </div>
+            <div class="w-5/6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">기대효과</h3>
+                <p class="text-gray-600">정보 공개는 시장에서 고효율 기술이 자연스럽게 주도적인 위치를 차지하게 하며, 보조금 없이도 고효율 제품이 시장을 선도하는 자율 경쟁 환경을 조성할 것입니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 7: 기대효과 1 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">기대 효과 (1) - 고효율 시장 형성</h1>
+    </div>
+    <div class="flex-grow px-16 py-4 flex">
+        <div class="w-1/2 pr-8">
+            <div class="content-box p-6 mb-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-line text-green-600 text-2xl mr-3"></i>
+                    <h2 class="text-2xl font-semibold text-gray-700">효율 데이터 공개의 영향</h2>
+                </div>
+                <ul class="text-lg text-gray-600 space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                        <span>에너지 효율 검사 데이터의 투명한 공개는 시장 내 자율 경쟁을 촉진합니다</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                        <span>소비자는 에너지 사용량, 효율, 가격 데이터를 직접 비교하여 합리적인 구매 결정을 내릴 수 있습니다</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                        <span>고효율 기술이 시장을 주도하는 자연스러운 환경이 조성됩니다</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-box p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-hand-holding-usd text-green-600 text-2xl mr-3"></i>
+                    <h2 class="text-2xl font-semibold text-gray-700">보조금 의존도 감소</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-3">고효율 제품 중심의 시장 재편은 보조금에 대한 의존도를 줄이고 시장 원리에 따라 기술 발전이 이루어지는 선순환 구조를 형성합니다.</p>
+            </div>
+        </div>
+        <div class="w-1/2 flex flex-col justify-center items-center">
+            <div class="w-full bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">시장 재편 과정</h3>
+                <div class="relative mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="bg-red-100 rounded-lg p-3 w-5/12">
+                            <div class="flex items-center">
+                                <i class="fas fa-industry text-red-500 text-xl mr-2"></i>
+                                <span class="text-lg font-medium">저효율 제품</span>
+                            </div>
+                        </div>
+                        <div class="w-1/12 flex justify-center">
+                            <i class="fas fa-arrow-right text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="bg-green-100 rounded-lg p-3 w-5/12">
+                            <div class="flex items-center">
+                                <i class="fas fa-award text-green-500 text-xl mr-2"></i>
+                                <span class="text-lg font-medium">고효율 제품</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="bg-white rounded-lg p-3 shadow w-5/12">
+                        <div class="flex items-center">
+                            <i class="fas fa-user-check text-blue-500 text-xl mr-2"></i>
+                            <span class="text-lg font-medium">소비자</span>
+                        </div>
+                    </div>
+                    <div class="w-1/12 flex justify-center">
+                        <i class="fas fa-arrows-alt-h text-2xl text-gray-400"></i>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 shadow w-5/12">
+                        <div class="flex items-center">
+                            <i class="fas fa-cogs text-blue-500 text-xl mr-2"></i>
+                            <span class="text-lg font-medium">시장</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 w-full">
+                <div class="flex items-center justify-center">
+                    <i class="fas fa-sync-alt text-green-600 text-4xl mr-3 animate-spin" style="animation-duration: 4s;"></i>
+                    <p class="text-xl font-semibold text-gray-700">선순환 구조 형성</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 8: 기대효과 2 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">기대 효과 (2) - NDC 조기 달성</h1>
+    </div>
+    <div class="flex-grow px-16 py-4 flex flex-col">
+        <div class="content-box p-6 mb-8 rounded-lg shadow-md">
+            <div class="flex items-center">
+                <i class="fas fa-chart-line text-green-600 text-3xl mr-4"></i>
+                <p class="text-xl text-gray-700">
+                    고효율 난방기기 보급 확산은 국가 온실가스 감축 목표(NDC) 조기 달성에 크게 기여할 수 있습니다.
+                </p>
+            </div>
+        </div>
+        <div class="flex justify-between mb-8">
+            <div class="ndc-card w-1/3 p-6 mx-2 flex flex-col items-center">
+                <div class="rounded-full bg-green-100 w-16 h-16 flex items-center justify-center mb-4">
+                    <i class="fas fa-bolt text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">에너지 소비 감소</h3>
+                <p class="text-center text-gray-600">
+                    효율적인 난방 시스템은 에너지 소비를 줄여 탄소 배출량을 감소시킵니다.
+                </p>
+            </div>
+            <div class="ndc-card w-1/3 p-6 mx-2 flex flex-col items-center">
+                <div class="rounded-full bg-green-100 w-16 h-16 flex items-center justify-center mb-4">
+                    <i class="fas fa-hand-holding-usd text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">보조 예산 부담 경감</h3>
+                <p class="text-center text-gray-600">
+                    에너지 효율이 높은 제품의 시장 점유율 증가는 정부의 보조 예산 부담을 줄입니다.
+                </p>
+            </div>
+            <div class="ndc-card w-1/3 p-6 mx-2 flex flex-col items-center">
+                <div class="rounded-full bg-green-100 w-16 h-16 flex items-center justify-center mb-4">
+                    <i class="fas fa-flag-checkered text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">2035년 NDC 목표 조기 달성</h3>
+                <p class="text-center text-gray-600">
+                    이러한 노력은 2035년 국가 온실가스 감축 목표를 조기에 달성하는 현실적인 접근법입니다.
+                </p>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold text-gray-700 mb-4">NDC 달성까지의 여정</h3>
+            <div class="flex items-center mb-2">
+                <span class="text-gray-600 w-24">현재</span>
+                <div class="progress-bar flex-grow bg-gray-200 mx-4">
+                    <div class="h-full bg-green-600" style="width: 45%"></div>
+                </div>
+                <span class="text-gray-600">2025</span>
+            </div>
+            <div class="flex items-center">
+                <span class="text-gray-600 w-24">목표</span>
+                <div class="progress-bar flex-grow bg-gray-200 mx-4">
+                    <div class="h-full bg-green-600" style="width: 100%"></div>
+                </div>
+                <span class="text-gray-600">2035</span>
+            </div>
+            <div class="mt-4 text-center text-gray-600">
+                <p>고효율 난방기기 보급은 이 여정에서 핵심적인 역할을 합니다</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 9: 결론 -->
+<div class="slide gradient-bg flex flex-col">
+    <div class="px-16 py-8">
+        <h1 class="title text-4xl font-bold text-gray-800">결론</h1>
+    </div>
+    <div class="flex-grow px-16 py-4">
+        <div class="bg-white rounded-lg p-6 mb-8 shadow-md border-l-4 border-green-600">
+            <p class="text-xl text-gray-700">
+                '전기 난방기기 효율검사 제도 일원화'와 '정보 공개를 통한 자율 경쟁 유도'는 지속 가능한 탄소중립 정책의 핵심적인 접근 방식이 될 것입니다.
+            </p>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="conclusion-card p-5 flex items-start">
+                <div class="icon-circle bg-green-100" style="width: 60px; height: 60px; margin-right: 16px;">
+                    <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">고효율 시장 형성</h3>
+                    <p class="text-gray-600">시장의 자율 경쟁을 촉진하여 고효율 제품 중심의 시장 재편을 유도합니다.</p>
+                </div>
+            </div>
+            <div class="conclusion-card p-5 flex items-start">
+                <div class="icon-circle bg-green-100" style="width: 60px; height: 60px; margin-right: 16px;">
+                    <i class="fas fa-handshake text-green-600 text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">보조금 의존도 감소</h3>
+                    <p class="text-gray-600">정부의 보조금 부담을 줄이고 시장 원리에 따라 기술 발전이 이루어지는 선순환 구조를 형성합니다.</p>
+                </div>
+            </div>
+            <div class="conclusion-card p-5 flex items-start">
+                <div class="icon-circle bg-green-100" style="width: 60px; height: 60px; margin-right: 16px;">
+                    <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">탄소중립 목표 달성</h3>
+                    <p class="text-gray-600">2035년 국가 온실가스 감축 목표(NDC)를 조기에 달성하는 데 기여합니다.</p>
+                </div>
+            </div>
+            <div class="conclusion-card p-5 flex items-start">
+                <div class="icon-circle bg-green-100" style="width: 60px; height: 60px; margin-right: 16px;">
+                    <i class="fas fa-balance-scale text-green-600 text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">기술 혁신 촉진</h3>
+                    <p class="text-gray-600">특정 기술에 대한 편향된 지원을 지양하고, 시장의 자율적인 기술 혁신을 촉진합니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Chart for Slide 3
+    const chart = d3.select("#chart1");
+    if (chart.node()) {
+        const width = chart.node().getBoundingClientRect().width;
+        const height = chart.node().getBoundingClientRect().height;
+
+        const svg = chart.append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        svg.append("rect")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("fill", "#f9f9f9")
+            .attr("rx", 8);
+
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", 30)
+            .attr("text-anchor", "middle")
+            .attr("font-family", "'Nanum Square', sans-serif")
+            .attr("font-size", "18px")
+            .attr("font-weight", "bold")
+            .attr("fill", "#333333")
+            .text("히트펌프 시장 상황");
+
+        const drawArrow = (x1, y1, x2, y2, color) => {
+            svg.append("line")
+                .attr("x1", x1)
+                .attr("y1", y1)
+                .attr("x2", x2)
+                .attr("y2", y2)
+                .attr("stroke", color)
+                .attr("stroke-width", 3)
+                .attr("marker-end", "url(#arrow)");
+        };
+
+        svg.append("defs").append("marker")
+            .attr("id", "arrow")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#666666");
+
+        drawArrow(width * 0.2, height * 0.4, width * 0.8, height * 0.4, "#4CAF50");
+        drawArrow(width * 0.2, height * 0.6, width * 0.8, height * 0.6, "#FF5252");
+
+        svg.append("text")
+            .attr("x", width * 0.1)
+            .attr("y", height * 0.4)
+            .attr("text-anchor", "start")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#4CAF50")
+            .text("중국산 제품");
+
+        svg.append("text")
+            .attr("x", width * 0.1)
+            .attr("y", height * 0.6)
+            .attr("text-anchor", "start")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#FF5252")
+            .text("저효율 제품");
+
+        svg.append("text")
+            .attr("x", width * 0.9)
+            .attr("y", height * 0.4)
+            .attr("text-anchor", "end")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#4CAF50")
+            .text("고효율");
+
+        svg.append("text")
+            .attr("x", width * 0.9)
+            .attr("y", height * 0.6)
+            .attr("text-anchor", "end")
+            .attr("font-family", "'Nanum Gothic', sans-serif")
+            .attr("font-size", "16px")
+            .attr("fill", "#FF5252")
+            .text("저효율");
+    }
+</script>
+
+</body>
+</html>
