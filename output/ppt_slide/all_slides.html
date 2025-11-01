@@ -122,6 +122,11 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    @keyframes moveFlow {
+        0%, 100% { transform: translateX(-10px); opacity: 0.6; }
+        50% { transform: translateX(10px); opacity: 1; }
+    }
+
     @media print {
         .slide {
             page-break-after: always;
@@ -242,7 +247,57 @@
             </div>
         </div>
         <div class="w-2/5 flex flex-col justify-center items-center">
-            <div class="w-full h-64 mb-6" id="chart1"></div>
+            <div class="w-full h-80 mb-6 bg-white rounded-lg shadow-lg p-6 relative">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4 text-center">히트펌프 수입 현황</h3>
+                <!-- China to Korea flow diagram -->
+                <div class="flex items-center justify-between h-48">
+                    <!-- China -->
+                    <div class="flex flex-col items-center w-2/5">
+                        <div class="text-6xl mb-2">🇨🇳</div>
+                        <div class="text-lg font-semibold text-gray-700">중국</div>
+                        <div class="mt-2 text-sm text-red-500 font-semibold">저가 대량생산</div>
+                        <div class="mt-1 px-3 py-1 bg-red-100 rounded-full">
+                            <i class="fas fa-industry text-red-600"></i>
+                            <span class="text-red-600 text-sm ml-1">저효율</span>
+                        </div>
+                    </div>
+                    <!-- Arrow with heat pump icons -->
+                    <div class="flex flex-col items-center justify-center w-1/5 relative">
+                        <div class="absolute" style="animation: moveFlow 2s infinite;">
+                            <i class="fas fa-temperature-low text-red-500 text-3xl"></i>
+                        </div>
+                        <div class="text-4xl text-gray-400">→</div>
+                        <div class="text-sm text-gray-600 mt-1">대량 수입</div>
+                    </div>
+                    <!-- South Korea -->
+                    <div class="flex flex-col items-center w-2/5">
+                        <div class="text-6xl mb-2">🇰🇷</div>
+                        <div class="text-lg font-semibold text-gray-700">대한민국</div>
+                        <div class="mt-2 text-sm text-orange-600 font-semibold">시장 잠식</div>
+                        <div class="mt-1 px-3 py-1 bg-orange-100 rounded-full">
+                            <i class="fas fa-exclamation-triangle text-orange-600"></i>
+                            <span class="text-orange-600 text-sm ml-1">국내업체 위협</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Statistics -->
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <div class="flex justify-around text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-red-600">↑ 급증</div>
+                            <div class="text-xs text-gray-600">중국산 수입량</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-orange-600">↓ 하락</div>
+                            <div class="text-xs text-gray-600">국내 제조 경쟁력</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-red-600">↓ 저하</div>
+                            <div class="text-xs text-gray-600">에너지 효율</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="bg-white p-6 rounded-lg shadow-lg w-full">
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center">
                     <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
@@ -653,97 +708,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    // Chart for Slide 3
-    const chart = d3.select("#chart1");
-    if (chart.node()) {
-        const width = chart.node().getBoundingClientRect().width;
-        const height = chart.node().getBoundingClientRect().height;
-
-        const svg = chart.append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        svg.append("rect")
-            .attr("width", width)
-            .attr("height", height)
-            .attr("fill", "#f9f9f9")
-            .attr("rx", 8);
-
-        svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", 30)
-            .attr("text-anchor", "middle")
-            .attr("font-family", "'Nanum Square', sans-serif")
-            .attr("font-size", "18px")
-            .attr("font-weight", "bold")
-            .attr("fill", "#333333")
-            .text("히트펌프 시장 상황");
-
-        const drawArrow = (x1, y1, x2, y2, color) => {
-            svg.append("line")
-                .attr("x1", x1)
-                .attr("y1", y1)
-                .attr("x2", x2)
-                .attr("y2", y2)
-                .attr("stroke", color)
-                .attr("stroke-width", 3)
-                .attr("marker-end", "url(#arrow)");
-        };
-
-        svg.append("defs").append("marker")
-            .attr("id", "arrow")
-            .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 8)
-            .attr("refY", 0)
-            .attr("markerWidth", 6)
-            .attr("markerHeight", 6)
-            .attr("orient", "auto")
-            .append("path")
-            .attr("d", "M0,-5L10,0L0,5")
-            .attr("fill", "#666666");
-
-        drawArrow(width * 0.2, height * 0.4, width * 0.8, height * 0.4, "#4CAF50");
-        drawArrow(width * 0.2, height * 0.6, width * 0.8, height * 0.6, "#FF5252");
-
-        svg.append("text")
-            .attr("x", width * 0.1)
-            .attr("y", height * 0.4)
-            .attr("text-anchor", "start")
-            .attr("font-family", "'Nanum Gothic', sans-serif")
-            .attr("font-size", "16px")
-            .attr("fill", "#4CAF50")
-            .text("중국산 제품");
-
-        svg.append("text")
-            .attr("x", width * 0.1)
-            .attr("y", height * 0.6)
-            .attr("text-anchor", "start")
-            .attr("font-family", "'Nanum Gothic', sans-serif")
-            .attr("font-size", "16px")
-            .attr("fill", "#FF5252")
-            .text("저효율 제품");
-
-        svg.append("text")
-            .attr("x", width * 0.9)
-            .attr("y", height * 0.4)
-            .attr("text-anchor", "end")
-            .attr("font-family", "'Nanum Gothic', sans-serif")
-            .attr("font-size", "16px")
-            .attr("fill", "#4CAF50")
-            .text("고효율");
-
-        svg.append("text")
-            .attr("x", width * 0.9)
-            .attr("y", height * 0.6)
-            .attr("text-anchor", "end")
-            .attr("font-family", "'Nanum Gothic', sans-serif")
-            .attr("font-size", "16px")
-            .attr("fill", "#FF5252")
-            .text("저효율");
-    }
-</script>
 
 </body>
 </html>
