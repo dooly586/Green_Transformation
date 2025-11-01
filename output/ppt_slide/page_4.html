@@ -7,15 +7,15 @@
 <script src="https://cdn.tailwindcss.com"></script><style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
         
-        body {width: 1280px; min-height: 725px; overflow: hidden; font-family: 'Nanum Gothic', sans-serif;
-            margin: 0;
-            padding: 0;}
-        
+        body {width: 1600px; min-height: 725px; overflow: auto; font-family: 'Nanum Gothic', sans-serif;
+            margin: 0 auto;
+            padding: 20px;}
+
         .slide {
-            width: 1280px;
+            width: 100%;
             min-height: 725px;
             position: relative;
-            
+
         }
         
         .title {
@@ -40,11 +40,11 @@
         }
     
 html {
-    overflow: hidden;
+    overflow: auto;
 }</style>
 </head>
 <body>
-<div class="slide gradient-bg flex flex-col" style=" overflow: hidden;">
+<div class="slide gradient-bg flex flex-col">
 <!-- Top accent line -->
 <div class="accent-line w-full"></div>
 <!-- Header -->
