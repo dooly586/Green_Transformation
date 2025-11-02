@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>미팅 대본 - 15분 버전</title>
+  <style>
+    :root {
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #10b981;
+      --bg: #ffffff;
+      --card: #f0fdf4;
+      --border: #d1fae5;
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple SD Gothic Neo, Noto Sans KR, "맑은 고딕", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    .wrap { max-width: 880px; margin: 40px auto; padding: 0 20px 80px; }
+    header { margin-bottom: 28px; background: var(--card); padding: 24px; border-radius: 16px; border: 2px solid var(--accent); }
+    h1 { font-size: 28px; margin: 0 0 8px; color: var(--accent); }
+    .subtitle { color: var(--muted); font-size: 15px; }
+    .time-badge { display: inline-block; background: var(--accent); color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+
+    section { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin: 18px 0; }
+    h2 { font-size: 20px; margin: 0 0 12px; color: var(--accent); }
+    h3 { font-size: 17px; margin: 18px 0 8px; }
+
+    .talk { border-left: 3px solid var(--accent); padding-left: 12px; margin: 10px 0; background: white; padding: 16px; border-radius: 8px; }
+    .talk p { margin: 8px 0; }
+
+    .keypoints { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 8px; }
+    .pill { background: #dcfce7; border: 1px solid #bbf7d0; color: #166534; padding: 10px 12px; border-radius: 12px; font-size: 14px; font-weight: 500; }
+
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li { padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: #fff; margin: 8px 0; }
+    .checklist li:before { content: "✓ "; color: var(--accent); font-weight: bold; margin-right: 8px; }
+
+    .timer { background: #fef3c7; border: 2px solid #fde047; color: #854d0e; padding: 12px; border-radius: 10px; font-weight: 600; text-align: center; margin: 12px 0; }
+
+    @media print {
+      body { background: #fff; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="time-badge">⏱️ 15분 버전</div>
+      <h1>녹색전환연구소 미팅 대본</h1>
+      <p class="subtitle">핵심 메시지만 빠르게 전달 - 바쁜 의사결정자용</p>
+    </header>
+
+    <div class="timer">⏰ 총 소요시간: 15분 (발표 10분 + 질의응답 5분)</div>
+
+    <section>
+      <h2>1. 문제 인식 (2분)</h2>
+      <div class="talk">
+        <p><strong>현재 전기 난방 시장의 가장 큰 문제는 무엇일까요?</strong></p>
+        <p>기술 경쟁이 아닌 <strong>보조금 구조가 기술을 결정</strong>하고 있습니다. 히트펌프 중심 정책으로 인해:</p>
+      </div>
+      <div class="keypoints">
+        <div class="pill">중국산 저효율 제품 급증<br>(28.8% → 47.6%)</div>
+        <div class="pill">공공예산 낭비<br>(효율 검증 없음)</div>
+        <div class="pill">국산 고효율 기술 차별</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. 핵심 제안: K-EEES (3분)</h2>
+      <div class="talk">
+        <p><strong>Korean Energy Efficiency Evaluation System</strong></p>
+        <p>모든 전기 난방 장비를 <strong>기술 이름이 아닌 성능 데이터로 평가</strong>하는 통합 제도입니다.</p>
+      </div>
+      <h3>3가지 핵심 원칙</h3>
+      <div class="keypoints">
+        <div class="pill">🎯 기술 중립<br>히트펌프든 이온히팅이든 공정한 기준</div>
+        <div class="pill">📊 데이터 기반<br>실증 테스트로 효율 검증</div>
+        <div class="pill">💰 정책 연동<br>등급별 보조금 차등 지급</div>
+      </div>
+      <h3>실증 데이터 예시</h3>
+      <ul class="checklist">
+        <li>KCL 테스트: 이온히팅이 히트펌프 대비 <strong>28.1% 에너지 절감</strong></li>
+        <li>온도 구간: -15℃ ~ +10℃ (실제 사용 환경)</li>
+        <li>평가 항목: 효율, 응답속도, 안정성</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. 연구소 역할 (2분)</h2>
+      <div class="talk">
+        <p><strong>왜 녹색전환연구소와 함께해야 하나?</strong></p>
+        <p>이 과제는 단순 기술 검증이 아닙니다. <strong>정책-기술-산업의 녹색전환 모델</strong>입니다.</p>
+      </div>
+      <div class="keypoints">
+        <div class="pill">실증 데이터 → 정책 제안<br>(TVTL + 연구소)</div>
+        <div class="pill">제도 설계 → 입법 연계<br>(연구소의 전문성)</div>
+        <div class="pill">성과 확산 → 전국 모델<br>(공동 브랜딩)</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. 기대 효과 (2분)</h2>
+      <ul class="checklist">
+        <li>정부 예산 효율화 (저효율 제품 차단)</li>
+        <li>국산 고효율 기술 시장 선도</li>
+        <li>투명한 데이터 공개로 소비자 신뢰 확보</li>
+        <li>한국형 에너지 효율 표준 국제 확산 가능</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. 다음 단계 (1분)</h2>
+      <div class="talk">
+        <p><strong>지금 바로 시작할 수 있습니다.</strong></p>
+      </div>
+      <ul class="checklist">
+        <li>1차 킥오프 미팅 (실증 프로토콜 합의)</li>
+        <li>공동 데이터 수집 및 분석</li>
+        <li>정책 제안서 공동 작성 및 제출</li>
+      </ul>
+      <div class="timer">💡 "데이터가 정책을 만들고, 정책이 시장을 바꿉니다."</div>
+    </section>
+
+  </main>
+</body>
+</html>
