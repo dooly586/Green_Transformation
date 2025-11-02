@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVTL 이온히팅 설치 사례</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 297mm;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Nanum Gothic', sans-serif;
+            background: #f5f5f5;
+        }
+
+        .slide {
+            width: 297mm;
+            height: 210mm;
+            background: #ffffff;
+            margin-bottom: 40px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #2d5a27 100%);
+            color: white;
+            padding: 20px 30px;
+            margin: -30px -30px 25px -30px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .slide-title {
+            font-family: 'Nanum Square', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 6px solid #4CAF50;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .info-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d5a27;
+            margin-bottom: 12px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100% - 200px);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .page-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+            margin: 30px 0;
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .slide {
+                margin-bottom: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .page-divider {
+                display: none;
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 15px;
+            right: 30px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: OB맥주 설치 사례 -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="slide-title">TVTL 이온히팅 설치 사례 1</div>
+        <div class="slide-subtitle">OB맥주 난방기 무상 보급 프로젝트</div>
+    </div>
+
+    <div class="info-box">
+        <h3>📍 OB맥주 - 에너지 비용절감 난방기 보급 사업</h3>
+        <p>
+            <strong>기간:</strong> 2021년부터 매년<br>
+            <strong>규모:</strong> 난방기 50대 무상 보급<br>
+            <strong>목적:</strong> 에너지 비용 절감 및 탄소 배출 감축<br>
+            <strong>특징:</strong> 기업 사회공헌 활동과 에너지 효율화의 결합 사례
+        </p>
+    </div>
+
+    <div class="image-container">
+        <img src="../data/Resized_20251029_125016.jpeg" alt="OB맥주 설치 사례">
+    </div>
+
+    <div class="footer">TVTL Energy Solution | 이온히팅 시스템</div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 2: 삼육대학교 설치 사례 -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="slide-title">TVTL 이온히팅 설치 사례 2</div>
+        <div class="slide-subtitle">삼육대학교 기숙사 난방 시스템</div>
+    </div>
+
+    <div class="info-box">
+        <h3>📍 삼육대학교 기숙사 - 대규모 난방 시스템 구축</h3>
+        <p>
+            <strong>설치 시기:</strong> 2021년<br>
+            <strong>대상:</strong> 기숙사 거주 학생 1,000명<br>
+            <strong>현황:</strong> 안정적 가동 중<br>
+            <strong>효과:</strong> 에너지 효율 향상 및 난방비 절감, 학생 복지 개선
+        </p>
+    </div>
+
+    <div class="image-container">
+        <img src="../data/Resized_20251029_125028.jpeg" alt="삼육대학교 설치 사례">
+    </div>
+
+    <div class="footer">TVTL Energy Solution | 이온히팅 시스템</div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- Slide 3: 노벨리스 코리아 설치 사례 -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="slide-title">TVTL 이온히팅 설치 사례 3</div>
+        <div class="slide-subtitle">노벨리스 코리아 울산 공장</div>
+    </div>
+
+    <div class="info-box">
+        <h3>📍 노벨리스 코리아 울산 공장 - 산업 현장 적용 사례</h3>
+        <p>
+            <strong>설치 시기:</strong> 2019년<br>
+            <strong>위치:</strong> 울산광역시 소재 생산 공장<br>
+            <strong>현황:</strong> 장기 안정 가동 중<br>
+            <strong>특징:</strong> 대규모 산업 시설에서의 이온히팅 시스템 검증 사례
+        </p>
+    </div>
+
+    <div class="image-container">
+        <img src="../data/Resized_20251029_125039.jpeg" alt="노벨리스 코리아 설치 사례">
+    </div>
+
+    <div class="footer">TVTL Energy Solution | 이온히팅 시스템</div>
+</div>
+
+</body>
+</html>

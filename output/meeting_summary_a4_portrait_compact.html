@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전기열원 통합 효율평가체계 구축 및 실증연구 제안 요약</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* A4 Portrait size and print styles */
+        @page {
+            size: A4 portrait;
+            margin: 1.2cm; /* Margin reduced */
+        }
+
+        body {
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: 0 auto;
+            padding: 0.2cm 1.2cm 1.2cm 1.2cm; /* 상단 패딩 줄임 */
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.4; /* Line height reduced */
+            color: #333;
+            font-size: 10.5pt; /* Font size slightly reduced */
+        }
+
+        h1 {
+            font-size: 18pt; /* Font size reduced */
+            font-weight: 700;
+            color: #2d5a27;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+            border-bottom: 3px solid #2d5a27;
+        }
+
+        h2 {
+            font-size: 14pt; /* Font size reduced */
+            font-weight: 600;
+            color: #4a7c59;
+            margin-top: 20px; /* Margin reduced */
+            margin-bottom: 8px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #e8f5e8;
+        }
+
+        h3 {
+            font-size: 11.5pt; /* Font size reduced */
+            font-weight: 500;
+            color: #5a8a69;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        .header-info {
+            text-align: center;
+            font-size: 9.5pt; /* Font size reduced */
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 10px 0; /* Margin reduced */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0; /* Margin reduced */
+            font-size: 9.5pt; /* Font size reduced */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px 8px; /* Padding reduced */
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .highlight {
+            background-color: #e8f5e8;
+            padding: 8px; /* Padding reduced */
+            border-left: 4px solid #2d5a27;
+            margin: 10px 0; /* Margin reduced */
+            font-size: 10pt;
+        }
+
+        blockquote {
+            border-left: 4px solid #4a7c59;
+            padding: 8px 12px; /* Padding reduced */
+            margin: 10px 0; /* Margin reduced */
+            background-color: #f9f9f9;
+            font-style: italic;
+            font-size: 10pt;
+        }
+
+        /* Infographic elements styling */
+        .infographic-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+
+        .infographic-icon {
+            font-size: 1.3em; /* Font size reduced */
+            margin-right: 8px;
+        }
+
+        .infographic-value {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: #e53e3e;
+        }
+
+        /* Ensure content does not break across pages unnecessarily */
+        h2, h3, table, blockquote {
+            page-break-after: avoid;
+        }
+        
+        .roadmap-table th {
+            background-color: #4a7c59;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>전기열원 통합 효율평가체계 구축 및 실증연구 제안(요약본)</h1>
+    <p class="header-info">
+        기술 중립적 난방시장 구축과 국가 NDC 조기 달성을 위한 공동 연구 제안<br>
+        제안기관: 뉴에너지㈜ / 협력기관: 녹색연합
+    </p>
+    <hr>
+
+    <h2>1. 현황 및 문제점: 왜 새로운 평가체계가 필요한가?</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>문제 영역</th>
+                <th>핵심 문제</th>
+                <th>결과</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>정책 편향</td>
+                <td>히트펌프 중심 보조금 집중</td>
+                <td>기술 중립성 상실, 국내 고효율 신기술 시장 진입 제한</td>
+            </tr>
+            <tr>
+                <td>효율성 저하</td>
+                <td>저효율 외산 제품 대량 유입</td>
+                <td>에너지 절감 효과 저하, 정부 예산 낭비</td>
+            </tr>
+            <tr>
+                <td>제도 부재</td>
+                <td>혁신 기술(전기보일러, 이온히팅) 공식 효율검사 제도 부재</td>
+                <td>소비자 선택 불가, 기술 경쟁력 약화, NDC 달성 지연</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="highlight">
+        핵심: '기술의 이름'이 아닌 '성능과 효율'이 경쟁의 기준이 되어야 합니다.
+    </div>
+
+    <hr>
+
+    <h2>2. 제안 핵심: K-EEES (한국형 전기열원 통합 효율검사 제도) 구축</h2>
+
+    <h3>1) K-EEES (Korea Electric-Heat-Source Efficiency Evaluation System)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>평가 기준</th>
+                <th>내용</th>
+                <th>기대 효과</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>통합 평가</td>
+                <td>모든 전기열원(히트펌프, 이온히팅 등) 통합 평가</td>
+                <td>기술 간 공정 경쟁 환경 조성</td>
+            </tr>
+            <tr>
+                <td>실증 기반</td>
+                <td>실제 사용 환경(-15℃~+10℃) 성능 검증</td>
+                <td>데이터 기반의 객관적 효율성 확보</td>
+            </tr>
+            <tr>
+                <td>정책 연동</td>
+                <td>효율 등급에 따라 보조금 및 인센티브 차등 지급</td>
+                <td>정부 예산 효율화, 고효율 제품 시장 선도</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2) 실증된 기술 우수성 (이온히팅 시스템 예시)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>지표</th>
+                <th>결과</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>전력 절감 (히트펌프 대비)</td>
+ 
+                <td><div class="infographic-item"><span class="infographic-icon">⚡️</span> <span class="infographic-value">28.1%</span> (절감)</div></td>
+            </tr>
+            <tr>
+                <td>탄소 감축</td>
+
+                <td><div class="infographic-item"><span class="infographic-icon">🌳</span> <span class="infographic-value">43%</span> (감축)</div></td>
+            </tr>
+            <tr>
+                <td>열 변환 효율</td>
+
+                <td><div class="infographic-item"><span class="infographic-icon">🔥</span> <span class="infographic-value">99.6%</span> (효율)</div></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>3. 기대 효과 및 시장 재편 모델 (Roadmap)</h2>
+
+    <h3>시장 재편 3단계 로드맵</h3>
+    <table class="roadmap-table">
+        <thead>
+            <tr>
+                <th>단계</th>
+                <th>목표</th>
+                <th>주요 활동</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Phase 1</td>
+                <td>기술 중립적 평가 기준 확립</td>
+                <td>K-EEES 설계 및 공인시험 모델 구축</td>
+            </tr>
+            <tr>
+                <td>Phase 2</td>
+                <td>데이터 기반의 기술 우위 입증</td>
+                <td>고효율 기술 실증 및 KS 표준 제정 추진</td>
+            </tr>
+            <tr>
+                <td>Phase 3</td>
+                <td>성능 기반의 자율 경쟁 시장 정착</td>
+                <td>보조금 → 성능 인센티브 전환, 공공조달 연계 강화</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <blockquote>
+        최종 목표: "기술 경쟁으로 탄소를 줄이는 시장 구조"로의 대전환을 통해 국가 NDC 목표 조기 달성 및 한국형 녹색산업 생태계 조성에 기여.
+    </blockquote>
+
+    <div class="highlight" style="background-color: #f0f8ff; border-left-color: #4682b4;">
+        결론: 본 연구는 단순한 기술 검증을 넘어, 정책-기술-산업이 함께 움직이는 지속 가능한 탄소중립 전환 모델을 제시합니다.
+    </div>
+</body>
+</html>
